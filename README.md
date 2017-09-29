@@ -290,8 +290,8 @@ You can provide a `splash_content` that way:
 
 Supported format are:
 
-- JPEG: mime_type = "jpeg"
-- PNG: mime_type = "png"
-- GIF: mime_type = "gif"
+- JPEG: mime_type = "image/jpeg"
+- PNG: mime_type = "image/png"
+- GIF: mime_type = "image/gif"
 
 `<encoded data>` should be replaced with the content of the image encoded in base64.
