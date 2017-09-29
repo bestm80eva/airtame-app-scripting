@@ -77,7 +77,7 @@ _PS: You need as many files as there are ips. 1st file for 1st ip, 2nd file for 
 
 
 Splash content is an array and contain either 1 of the two objects bellow:
-```json
+```js
 {
   "type": "image",
   "content": "base64formattedimage" // cf. bottom of this doc
