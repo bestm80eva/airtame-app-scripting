@@ -34,7 +34,7 @@ _PS: You need as many files as there are ips. 1st file for 1st ip, 2nd file for 
 
 ##### Format of the settings file:
 
-```json
+```js
 {
     "ap_24_channel": 6,
     "ap_24_enabled": true,
