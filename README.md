@@ -28,7 +28,19 @@ You can also change settings for multiple devices:
 airtame-application --set-settings=/home/test/settings.json,/home/test/settings2.json --ip=192.168.1.1,192.168.1.2
 ```
 
-You simply need to add more files and more ips by separating them with a comma !
+And also for password protected devices:
+
+```
+airtame-application --set-settings=/settings.json,/settings2.json,/settings3.json,/settings4.json --ip=192.168.1.1,192.168.1.2,192.168.1.3,192.168.1.4 --pwd=1234,,4321,
+```
+
+This require some explanation:
+
+_**You need as many settings as there are ips and passwords, otherwise this will not work. You can have devices with or without password, as it is demonstrated in the example, simply let the data empty. In the example the device 2 and 4 don't have passwords.**_
+
+_**IMPORTANT: For the moment, password have to be command line compatible. This means that the set of character used is limited. And they should not contain comas.**_
+
+You simply need to add more files and more ips (and pwds) by separating them with a comma !
 
 _PS: You need as many files as there are ips. 1st file for 1st ip, 2nd file for 2nd ip, ... A file can be used multiple times (but try not to use the same `device_name` or `cloud_token`)_
 
@@ -253,6 +265,7 @@ Which gives:
 
 ```
 Options:
+  --version        Show version number                                 [boolean]
   --set-settings   Configuration file to apply to airtames              [string]
   --stream, -s     Allows you to stream to a device                    [boolean]
   --get-settings   Allows you to retrieve settings from a device in JSON format
@@ -260,19 +273,20 @@ Options:
   --get-state      Allows you to retrieve the state from a device in JSON format
                                                                        [boolean]
   --ip             IP of the device                                     [string]
-  --help           Show help                                           [boolean]
+  --pwd            Password of the device (if settings are protected)   [string]
   --reset-default                                     [boolean] [default: false]
   --verbose, -v                                       [boolean] [default: false]
+  --help           Show help                                           [boolean]
 ```
 
 ## What's not in it ?
 
 * Upload of images (a workaround is explained at the bottom of this file)
-* Communication with password protected devices
 * Changing settings for streaming (for streaming quality)
 * Discovery of devices
 * Discovery of not setup devices
 * Extreme error handling
+* Password protection still have some limitations: The password must be compatible with being a command line arguments and password protection is supported only for set-settings at the moment.
 
 ### How to upload an image ?
 
