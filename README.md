@@ -75,8 +75,8 @@ _PS: You need as many files as there are ips. 1st file for 1st ip, 2nd file for 
 }
 ```
 
-
 Splash content is an array and contain either 1 of the two objects bellow:
+
 ```js
 {
   "type": "image",
@@ -241,7 +241,7 @@ You can stream to multiple devices that way.
 
 **This functionality is not properly tested. Use it at your own risk.**
 
-#### --help (or -s)
+#### --help (or -h)
 
 This will display the help of the CLI:
 
@@ -267,13 +267,12 @@ Options:
 
 ## What's not in it ?
 
-- Upload of images (a workaround is explained at the bottom of this file)
-- Communication with password protected devices
-- Changing settings for streaming (for streaming quality)
-- Discovery of devices
-- Discovery of not setup devices
-- Extreme error handling
-
+* Upload of images (a workaround is explained at the bottom of this file)
+* Communication with password protected devices
+* Changing settings for streaming (for streaming quality)
+* Discovery of devices
+* Discovery of not setup devices
+* Extreme error handling
 
 ### How to upload an image ?
 
@@ -290,8 +289,8 @@ You can provide a `splash_content` that way:
 
 Supported format are:
 
-- JPEG: mime_type = "image/jpeg"
-- PNG: mime_type = "image/png"
-- GIF: mime_type = "image/gif"
+* JPEG: mime_type = "image/jpeg"
+* PNG: mime_type = "image/png"
+* GIF: mime_type = "image/gif"
 
 `<encoded data>` should be replaced with the content of the image encoded in base64.
