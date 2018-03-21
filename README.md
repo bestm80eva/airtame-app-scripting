@@ -178,6 +178,101 @@ You can as well put one or more ip for this command, and the result will be:
 }
 ```
 
+#### --get-state
+
+This is almost as simple as get-settings:
+
+```
+airtame-application --get-state --ip=192.168.1.1
+```
+
+_This command also support password protected devices:_
+
+```
+airtame-application --get-state --ip=192.168.1.1 --pwd=1234
+```
+
+And the output that you should expect is:
+
+```json
+{
+  "192.168.1.1": {
+    "network_state": {
+      "interfaces": [
+        {
+          "ip": "192.168.22.1",
+          "mac": "1a:7b:1a:fc:77:d2",
+          "name": "br0",
+          "type": "bridge"
+        },
+        {
+          "frequency": 2437,
+          "ip": "",
+          "mac": "38:4b:76:01:1d:e5",
+          "mode": "ap",
+          "name": "wlan1",
+          "signal_strength": -128,
+          "ssid": "Dark Knight",
+          "status": "connected",
+          "type": "wifi"
+        },
+        {
+          "frequency": 5240,
+          "ip": "192.168.1.1",
+          "mac": "38:4b:76:01:1d:e4",
+          "mode": "client",
+          "name": "wlan0",
+          "signal_strength": -72,
+          "ssid": "WhatASpace",
+          "status": "connected",
+          "type": "wifi"
+        },
+        {
+          "ip": "169.254.13.37",
+          "mac": "f2:34:76:ed:a2:30",
+          "name": "usb0",
+          "status": "connected",
+          "type": "usb"
+        }
+      ],
+      "online": true
+    },
+    "resolutions": [
+      {
+        "audio": true,
+        "mode": "S:1920x1080p-60"
+      }
+      // ...
+    ],
+    "settings": {
+      // Same settings as the ones in the get-settings examples ;)
+    },
+    "timezones": [
+      // ...
+      "America/New_York",
+      // ...
+      "Europe/Copenhagen",
+      // ...
+      "UTC"
+    ],
+    "wifis": [
+      {
+        "bssid": "00:11:22:33:44:55",
+        "frequency": 5240,
+        "key_mgmt": "WPA-PSK",
+        "rssi": -73,
+        "ssid": "Some Amazing SSID"
+      }
+      // ...
+    ]
+  }
+}
+```
+
+_**You need as many passwords passwords as there are ips, otherwise this will not work. You can have devices with or without password, simply let the data empty. (ex. --pwd=1234,,4321, for 4 device, with the first and the third with password.)**_
+
+_**IMPORTANT: For the moment, password have to be command line compatible. This means that the set of character used is limited. And they should not contain comas.**_
+
 #### --verbose (or -v)
 
 If you encounter issues you can use the verbose command to add the logs:
